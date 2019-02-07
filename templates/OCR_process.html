@@ -1,0 +1,79 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="../../../../favicon.ico">
+
+	<title>Project Spreading tool</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="{{ url_for('static', filename='css/cover.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/floating-labels.css') }}" rel="stylesheet">
+
+</head>
+
+<body class="text-center" >
+
+	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+		<header class="masthead mb-auto">
+			<div class="inner">
+				<h3 class="masthead-brand">
+
+				</h3>
+
+			</div>
+		</header>
+
+		<main role="main" class="inner cover">
+
+			<form class="form-signin" method="post">
+        {{ form.hidden_tag() }}
+
+				<div class="text-center mb-4" style="font:arial">
+
+					<h1 class="h1 mb-5 font-weight-normal">Project Spreading Tool </h1>
+
+				</div>
+
+				<div class="container">
+					<p>{{ form.pageNum(placeholder="Enter page numbers to be processed",class="form-control") }}</p>
+
+				</div>
+
+
+
+				<div class="container">
+					<p> {{ form.submit(class="btn btn-md btn-primary btn-block",style="background-color: #DAA520;  border-color:black ") }}</p>
+
+				</div>
+
+
+
+
+
+			</form>
+		</main>
+
+		<footer class="mastfoot mt-auto">
+
+	</div>
+
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	 crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

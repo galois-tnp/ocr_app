@@ -1,0 +1,77 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link rel="icon" href="../../../../favicon.ico">
+
+	<title>Project Spreading tool</title>
+
+	<!-- Bootstrap core CSS -->
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="{{ url_for('static', filename='css/cover.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/floating-labels.css') }}" rel="stylesheet">
+
+</head>
+
+<body class="text-center" >
+
+	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+		<header class="masthead mb-auto">
+			<div class="inner">
+				<h3 class="masthead-brand">
+
+				</h3>
+
+			</div>
+		</header>
+</div>
+		<main role="main" class="container">
+			<form  method="post">
+				<div class="jumbotron " style="height : 140px; background-color:#494947">
+
+            <div class="form-group col-md-12">
+              <H4 style="margin-left:43%; color:white">Configurations</H4>
+              </div>
+
+        </div>
+       </form>
+
+        <form id = "addForm" method="post">
+				 <div class="jumbotron" style="height : 750px;width: 110%">
+           {# This hidden_tag is a CSRF security feature. #}
+           {{ form.hidden_tag() }}
+         <div class="form-row">
+           <div class="form-group col-md-4">
+               <label for="bal_sheet">Balance Sheet</label>
+                {{ form.bal_sheet(class="form-control") }}
+             </div>
+						 <div class="form-group col-md-3">
+                 <label >&nbsp;</label>
+
+               </div>
+             <div class="form-group col-md-4" >
+                 <label for="stripid" >Profit & Loss</label>
+                  {{ form.profit_loss(class="form-control", id= "demo1") }}
+               </div></div>
+
+                  <div class="form-row">
+                    <div class="form-group col-md-3">
+                        {{ form.submit(class="btn btn-primary",style="background-color:grey; border-color:grey") }}
+                      </div>
+                     </div>
+                </div>
+
+			</form>
+
+</main>
+
+</body>
+
+</html>
