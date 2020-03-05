@@ -7,16 +7,18 @@ import cv2
 import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
-from Configuration import fl_Dict,sales,debt,netWorth,pbit,capEmp,qrCA,cfa
-import fnmatch
+from Configuration import fl_Dict,sales,debt,assets,netWorth,pbit,capEmp,qrCA,cfa
+import fnmatch,re
 
 def pdf_split(filePath,file):
-    inputpdf = PdfFileReader(open(os.path.join(filePath, file), "rb"))
-    for i in range(inputpdf.numPages):
-        output = PdfFileWriter()
-        output.addPage(inputpdf.getPage(i))
-        with open(os.path.join(filePath, "split-page%s.pdf") % i, "wb") as outputStream:
-            output.write(outputStream)
+    with open(os.path.join(filePath, file), "rb") as inputpdf1:
+        inputpdf = PdfFileReader(inputpdf1)
+        for i in range(inputpdf.numPages):
+            output = PdfFileWriter()
+            output.addPage(inputpdf.getPage(i))
+            with open(os.path.join(filePath, "split-page%s.pdf") % i, "wb") as outputStream:
+                output.write(outputStream)
+
     return inputpdf.numPages
 
 #### Convert PDF into image ####
@@ -25,6 +27,7 @@ def image_conversion(filePath, file,page_num):
     pages = convert_from_path(os.path.join(filePath, "split-page%s.pdf") % page_num, 500)
     for page in pages:
         page.save(os.path.join(filePath, "split-page%s.png") % page_num, 'PNG')
+
 
 #### OCR read ####
 
@@ -43,15 +46,14 @@ def OCR_read(filePath,file,page_num):
     cv2.imwrite(inputImage, gray)
 
 ### load the image as a PIL/Pillow image, apply OCR, and then delete the temporary file ##
-    text = pytesseract.image_to_string(Image.open(inputPath),lang = 'eng',config = '--psm 6')
+    #text = pytesseract.image_to_string(Image.open(inputPath),lang = 'eng',config = '--psm 6')
     text1 = pytesseract.image_to_string(Image.open(inputImage),lang = 'eng',config = '--psm 6')
 
 ### Creating block from text
 
-    text2 =  text.split('\n')
+    text2 =  text1.split('\n')
     text3 = np.array(text2)
-    df = pd.DataFrame(columns=['1','2','3','4','5','6','7','8','9','10'])
-    a,b,c,d,e,f,g,h,m,n=[],[],[],[],[],[],[],[],[],[]
+
 
 ################## Translate to excel ########
 
@@ -195,6 +197,23 @@ def OCR_read1(filePath,file,page_num):
 
 ### load the image as a PIL/Pillow image, apply OCR, and then delete the temporary file ##
     #text = pytesseract.image_to_string(Image.open(inputPath),lang = 'eng',config = '--psm 6')
+    #text1 = pytesseract.image_to_string(Image.open(inputImage),lang = 'eng',config = '--psm 6')
+
+### Creating block from text
+
+    #text2 =  text1.split('\n')
+    #text3 = np.array(text2)
+    return 0
+
+####################################
+
+###################################
+def OCR_read2(filePath,file,page_num):
+    inputPath = os.path.join(filePath, "split-page%s.png") % page_num
+    inputImage = os.path.join(filePath, "split-page%s-grayscale.png") % page_num
+
+### load the image as a PIL/Pillow image, apply OCR, and then delete the temporary file ##
+    #text = pytesseract.image_to_string(Image.open(inputPath),lang = 'eng',config = '--psm 6')
     text1 = pytesseract.image_to_string(Image.open(inputImage),lang = 'eng',config = '--psm 6')
 
 ### Creating block from text
@@ -203,30 +222,4 @@ def OCR_read1(filePath,file,page_num):
     text3 = np.array(text2)
     return text3
 
-################## Translate to excel ########
-def bal_ratio(text3):
-    for i in text3:
-        istring=i.split(' ')
-        cntstr=len(fnmatch.filter(istring,'20??'))
-        if(cntstr>1):break
-
-    for i in text3:
-        for j in range(0,len(fl_Dict['Balance Sheet'])):
-            if(i.lower().find(fl_Dict['Balance Sheet'][j].lower())!=-1):
-                for k in text3:
-                    for l in range(0,len(debt['Debt'])):
-                        if(k.lower().find(debt['Debt'][l].lower()!=-1)):
-                            bal_str=k.replace(debt['Debt'][l].lower(),"")
-                            bal_lst=bal_str.split(" ")
-                            if(len(bal_lst)>cntstr):
-                                for m in range(0,(cntstr-len(bal_lst))):
-                                    bal_lst.pop(m)
-                            total_liab=float(bal_lst[0].replace(",",""))
-                    for l in range(0,len(netWorth['Networth'])):
-                        if(k.lower().find(netWorth['Networth'][l].lower()!=-1)):
-                            bal_str=k.replace(netWorth['Networth'][l].lower(),"")
-                            bal_lst=bal_str.split(" ")
-                            if(len(bal_lst)>cntstr):
-                                for m in range(0,(cntstr-len(bal_lst))):
-                                    bal_lst.pop(m)
-                            net_worth=float(bal_lst[0].replace(",",""))
+####################################

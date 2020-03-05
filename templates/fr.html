@@ -1,0 +1,128 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<title>Credit Spreading tool</title>
+	<link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" >
+
+	<!-- Bootstrap core CSS -->
+	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+	<!-- Custom styles for this template -->
+	<link href="{{ url_for('static', filename='css/cover.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='css/floating-labels.css') }}" rel="stylesheet">
+
+</head>
+
+<body class="text-center" style="background-color: #f2f2f2">
+
+	<div class="cover-container d-flex w-100 h-100 p-6 mx-auto flex-column">
+		<header class="masthead mb-auto">
+			<div class="inner">
+				<h3 class="masthead-brand">
+
+				</h3>
+
+			</div>
+		</header>
+
+		<main role="main" class="container">
+
+				<div class="">
+
+            <div class="form-group col-md-12">
+              <img src="{{ url_for('static', filename='img/Artboard 26.png') }}" alt="" srcset="" style="height : 130px">
+              </div>
+        </div>
+
+
+        <form id = "addForm" method="get">
+
+					 <table class="table table-hover">
+  <thead>
+    <tr>
+
+      <th scope="col" style="color:#2f8593 ">Financial Data</th>
+      <th scope="col" style="color:#2f8593 ">Evaluation Year(-1)</th>
+      <th scope="col" style="color:#2f8593 ">Evaluation Year</th>
+    </tr>
+  </thead>
+  <tbody>
+		<tr>
+      >
+      <td style="color:#2f8593 ">Total Debt</td>
+      <td><input value= {{form.tot_debt}} class="form-control"></td>
+      <td><input value= "" class="form-control"></td>
+    </tr>
+    <tr>
+
+      <td style="color:#2f8593 ">Total Assets</td>
+      <td><input value= {{form.tot_assets}} class="form-control"></td>
+      <td><input value= "" class="form-control"></td>
+    </tr>
+		<tr>
+
+      <td style="color:#2f8593 ">Current Liabilities</td>
+      <td><input value= {{form.curr_liab}} class="form-control"></td>
+      <td><input value= "" class="form-control"></td>
+    </tr>
+		<tr>
+
+			<td style="color:#2f8593 ">Networth</td>
+			<td><input value= {{form.net_equity}} class="form-control"></td>
+			<td><input value= "" class="form-control"></td>
+		</tr>
+		<tr>
+
+			<td style="color:#2f8593 ">PBIT</td>
+			<td><input value= {{form.pb_it}} class="form-control"></td>
+			<td><input value= "" class="form-control"></td>
+		</tr>
+		<tr>
+
+			<td style="color:#2f8593 ">Capital Employed</td>
+			<td><input value= {{form.cap_emp}} class="form-control"></td>
+			<td><input value= "" class="form-control"></td>
+		</tr>
+		<tr>
+
+			<td style="color:#2f8593 ">Gearing Ratio</td>
+			<td><input value= {{form.gearing}} class="form-control"></td>
+			<td><input value= "" class="form-control"></td>
+		</tr>
+		<tr>
+
+			<td style="color:#2f8593 ">ROCE</td>
+			<td><input value= {{form.roce}} class="form-control"></td>
+			<td><input value= "" class="form-control"></td>
+		</tr>
+  </tbody>
+</table>
+
+
+
+
+
+			</form>
+
+	</main>
+
+
+	</div>
+
+
+	<!-- Bootstrap core JavaScript
+    ================================================== -->
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+	 crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

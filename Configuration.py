@@ -30,35 +30,40 @@ sales={"Sales":["Sales",
 ############## Dictionary for Total Debt identifier ################
 
 debt={"Debt":["Total Debt",
-"Total Liabilites"]}
+"Total Liabilities"]}
+
+############## Dictionary for Total Assets identifier ################
+
+assets={"Assets":["Total Assets",
+]}
 
 ############# Dictionary for Networth Identifier  ##################
 
 netWorth={"Networth":["Tangible Networth",
 "Total Equity",
-"Equity",
+"other Equity",
 "Equity Share Capital",
 "Compulsorily converible Preference shares",
 "Share capital suspense",
 "other Equity",
 "Securities premium",
-"Retained Earning",
+"Retained Earnings",
 "Other Reserves(including items of other comprehensive income)"]}
 
 ############ Dictionary for PBIT identifier  ###################
 
-pbit={"PBIT":["Profit before income tax",
+pbit={"PBIT":["Profit before interest tax",
 "Profit before tax",
-"Loss before Tax"]}
+"Loss before Tax",
+"Profit for the year"]}
 
 ############### Dictionary Capital Employed identifier #########
-capEmp={"Capital Employed":["Total Assets",
-"Total Current Liabilites",
-"Current Liabilites"
+capEmp={"Capital Employed":[
+"Total Current Liabilities",
+"Current Liabilities"
 "Trade and other payables",
 "Loans from related parties",
 "Due to related parties",
-"other financial liabilities",
 "income tax payable",
 "Billing in excess of cost and estimated earnings",
 "Accrued Contract Expenses",
@@ -69,7 +74,7 @@ capEmp={"Capital Employed":["Total Assets",
 "outstanding dues of other than micro and small enterprises",
 "other financial liabilities",
 "other current liabilites",
-"Provision",
+"Provisions",
 "Net Employee defined benefit liabilities"]}
 
 ################### Dictionary for Current Assets, inventory and prepaid expenses identifier ###############################

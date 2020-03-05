@@ -7,9 +7,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<link rel="icon" href="../../../../favicon.ico">
 
-	<title>Project Spreading tool</title>
+
+	<title>Credit Spreading tool</title>
+	<link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}" >
+
 
 	<!-- Bootstrap core CSS -->
 	<link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet">
@@ -20,7 +22,7 @@
 
 </head>
 
-<body class="text-center" >
+<body class="text-center" style="background-color: #f2f2f2">
 
 	<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 		<header class="masthead mb-auto">
@@ -39,7 +41,7 @@
 
 				<div class="text-center mb-4" style="font:arial">
 
-					<h1 class="h1 mb-5 font-weight-normal">Project Spreading Tool </h1>
+					<img src="{{ url_for('static', filename='img/Artboard 26.png') }}" alt="" srcset="" style="height : 150px">
 
 				</div>
 
@@ -51,7 +53,7 @@
 
 
 				<div class="container">
-					<p> {{ form.submit(class="btn btn-md btn-primary btn-block",style="background-color: #DAA520;  border-color:black ") }}</p>
+					<p> {{ form.submit(class="btn btn-md btn-primary btn-block",style="background-color: #2f8593;  color: #f2f2f2; font-weight: bold ") }}</p>
 
 				</div>
 
